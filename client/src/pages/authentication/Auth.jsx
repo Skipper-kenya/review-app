@@ -56,7 +56,7 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit, loading }) => {
                 {loading ? "Processing..." : btnName}
               </button>
               <p>
-                {name === "Login" ? (
+                {name === "signin" ? (
                   <>
                     {" "}
                     Don't have an account?{" "}
