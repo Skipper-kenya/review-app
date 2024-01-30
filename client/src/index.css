@@ -1,0 +1,20 @@
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: honeydew;
+}
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: coral;
+}
