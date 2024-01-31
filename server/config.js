@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 import { config } from "dotenv";
 config();
 
+
+//setting up mongo db connection
+
 const connectDb = async (cb) => {
   try {
     mongoose

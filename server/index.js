@@ -31,11 +31,6 @@ connectDb(() => {
   });
 });
 
-// const greetings = {
-//   name: "Andrew",
-//   greet: function () {
-//     return console.log(`hello ${this.name}, welcome to our space`);
-//   },
-// };
-
-// greetings.greet();
+app.use("/", (req, res) => {
+  return res.status(400).send("Oops! page not found");
+});
