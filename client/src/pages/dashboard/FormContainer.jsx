@@ -21,15 +21,18 @@ const FormContainer = ({
   const deleteHandler = async (id) => {
     if (cookie.access_token) {
       try {
+        setLoading(true);
         const response = await axios.delete(
           `${process.env.REACT_APP_DELETE_REVIEW}/${id}/${token}`
         );
         const { success, message, updatedReviews } = response.data;
+        setLoading(false);
         if (success) {
           setReviews(updatedReviews);
           toast.info(message);
         }
       } catch (error) {
+        setLoading(false);
         console.log(error.message);
       }
     } else {
@@ -40,6 +43,7 @@ const FormContainer = ({
   const editHandler = async (id) => {
     if (cookie.access_token) {
       try {
+        setLoading(true);
         const getReview = await axios.get(
           `${process.env.REACT_APP_GET_REVIEW}/${id}/${token}`
         );
@@ -50,7 +54,9 @@ const FormContainer = ({
         setReview(review.review);
         setEditId(id);
         setIsEditTrue(true);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.log(error.message);
       }
     } else {

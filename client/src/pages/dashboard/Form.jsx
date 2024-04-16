@@ -16,7 +16,7 @@ const Form = ({
   editId,
   token,
   loading,
-  setLoading
+  setLoading,
 }) => {
   const { isUserLoggedIn } = useContext(globalContext);
   const userId = useGetUserId();
@@ -42,6 +42,7 @@ const Form = ({
 
     try {
       if (!isEditTrue) {
+        setLoading(true);
         const response = await axios.post(process.env.REACT_APP_ADD_REVIEW, {
           title,
           review,
@@ -50,6 +51,7 @@ const Form = ({
         });
 
         const { message, success, reviews } = await response.data;
+        setLoading(false);
 
         if (success) {
           setReviews(reviews);
@@ -59,6 +61,7 @@ const Form = ({
 
         clearInputs();
       } else {
+        setLoading(true);
         const response = await axios.post(process.env.REACT_APP_EDIT_REVIEW, {
           id: editId,
           title,
@@ -67,6 +70,8 @@ const Form = ({
         });
 
         const { message, success, updatedReviews } = response.data;
+        setLoading(false);
+
         if (success) {
           setReviews(updatedReviews);
           setIsEditTrue(false);
@@ -75,6 +80,8 @@ const Form = ({
         }
       }
     } catch (error) {
+      setLoading(false);
+
       console.log(error.message);
     }
   };
