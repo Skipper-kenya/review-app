@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Toaster } from "sonner";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { Spin } from "antd";
 import GlobalProvider from "./context/generalContext";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <GlobalProvider>
+        <Spin fullscreen spinning={loading} />
         <Toaster richColors position="top-center" />
         <Router>
           <Navbar />
