@@ -23,7 +23,7 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit, loading }) => {
         <div className="auth-wrapper">
           <h3>{name} page</h3>
           <form>
-            <div className="top-wel">
+            <div className="top-wel" style={{ fontFamily: "arial" }}>
               <h4>{name}</h4>
               <UserCircle size={30} color="coral" />
             </div>
@@ -77,3 +77,4 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit, loading }) => {
 };
 
 export default Auth;
+9

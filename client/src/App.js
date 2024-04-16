@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Toaster } from "sonner";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -9,6 +9,7 @@ import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   return (
     <div>
       <GlobalProvider>
@@ -16,9 +17,18 @@ function App() {
         <Router>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route
+              path="/"
+              element={<Dashboard loading={loading} setLoading={setLoading} />}
+            />
+            <Route
+              path="/login"
+              element={<Login loading={loading} setLoading={setLoading} />}
+            />
+            <Route
+              path="/register"
+              element={<Register loading={loading} setLoading={setLoading} />}
+            />
           </Routes>
         </Router>
       </GlobalProvider>

@@ -30,13 +30,17 @@ const Dashboard = () => {
   const isThereUserId = () => userId !== null && userId !== "";
 
   const getReviews = async () => {
-    const response = await axios.get(process.env.REACT_APP_GET_REVIEWS);
-    const { allReviews, success } = response.data;
+    try {
+      const response = await axios.get(process.env.REACT_APP_GET_REVIEWS);
+      const { allReviews, success } = response.data;
 
-    if (success) {
-      setReviews(allReviews);
-    } else {
-      toast.info("Retry amigo!");
+      if (success) {
+        setReviews(allReviews);
+      } else {
+        toast.info("Retry amigo!");
+      }
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
