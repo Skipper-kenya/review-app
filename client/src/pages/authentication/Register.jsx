@@ -5,7 +5,7 @@ import Auth from "./Auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-const Register = ({ loading }) => {
+const Register = ({ loading, setLoading }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -44,6 +44,8 @@ const Register = ({ loading }) => {
         su={setUsername}
         sp={setPassword}
         loading={loading}
+        setLoading={setLoading}
+
       />
     </>
   );

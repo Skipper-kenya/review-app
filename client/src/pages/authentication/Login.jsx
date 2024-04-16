@@ -52,6 +52,7 @@ const Login = ({ loading, setLoading }) => {
         su={setUsername}
         sp={setPassword}
         loading={loading}
+        setLoading={setLoading}
       />
     </>
   );
