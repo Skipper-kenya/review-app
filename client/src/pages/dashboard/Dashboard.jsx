@@ -47,13 +47,17 @@ const Dashboard = ({ loading, setLoading }) => {
 
   const determineAdmin = async () => {
     try {
+      setLoading(true);
       const response = await axios.post(process.env.REACT_APP_DETERMINE_ADMIN, {
         id,
       });
+      setLoading(false);
 
       const { isAdmin } = response.data;
       setAdminUser(isAdmin);
     } catch (error) {
+      setLoading(false);
+
       console.log(error.message);
     }
   };

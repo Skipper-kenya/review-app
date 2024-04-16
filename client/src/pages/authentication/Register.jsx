@@ -5,11 +5,9 @@ import Auth from "./Auth";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-const Register = () => {
+const Register = ({ loading }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 

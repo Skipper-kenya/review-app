@@ -51,14 +51,10 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit, loading }) => {
                 />
               </div>
 
-              <button onClick={handleSubmit}>
-                {" "}
-                {loading ? "Processing..." : btnName}
-              </button>
+              <button onClick={handleSubmit}>{btnName}</button>
               <p>
                 {name === "signin" ? (
                   <>
-                    {" "}
                     Don't have an account?{" "}
                     <Link to={"/register"}>Register</Link>
                   </>
@@ -77,4 +73,4 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit, loading }) => {
 };
 
 export default Auth;
-9
+9;

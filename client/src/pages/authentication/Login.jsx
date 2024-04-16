@@ -8,7 +8,7 @@ import Auth from "./Auth";
 
 import { globalContext } from "../../context/generalContext";
 
-const Login = () => {
+const Login = ({ loading, setLoading }) => {
   const { setCookie, id } = useContext(globalContext);
 
   const navigate = useNavigate();
@@ -16,7 +16,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const [loading, setLoading] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (username === "" || password === "") {
