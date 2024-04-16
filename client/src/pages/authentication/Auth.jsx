@@ -73,4 +73,3 @@ const Auth = ({ name, btnName, u, p, su, sp, handleSubmit }) => {
 };
 
 export default Auth;
-9;

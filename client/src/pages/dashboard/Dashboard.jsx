@@ -87,6 +87,8 @@ const Dashboard = ({ loading, setLoading }) => {
         token={token}
         isThereUserId={isThereUserId}
         userId={userId}
+        loading={loading}
+        setLoading={setLoading}
       />
       <FormContainer
         reviews={reviews}
@@ -101,6 +103,8 @@ const Dashboard = ({ loading, setLoading }) => {
         token={token}
         adminUser={adminUser}
         myReviews={myReviews}
+        loading={loading}
+        setLoading={setLoading}
         id={id}
       />
     </div>

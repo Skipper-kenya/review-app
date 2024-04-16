@@ -13,6 +13,8 @@ const FormContainer = ({
   token,
   adminUser,
   id,
+  loading,
+  setLoading,
 }) => {
   const { cookie } = useContext(globalContext);
 

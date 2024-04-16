@@ -15,6 +15,8 @@ const Form = ({
   setIsEditTrue,
   editId,
   token,
+  loading,
+  setLoading
 }) => {
   const { isUserLoggedIn } = useContext(globalContext);
   const userId = useGetUserId();
