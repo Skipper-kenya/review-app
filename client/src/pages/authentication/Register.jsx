@@ -15,13 +15,14 @@ const Register = ({ loading, setLoading }) => {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const response = await axios.post(process.env.REACT_APP_REGISTER, {
         username,
         password,
       });
 
       const { message, success } = response.data;
-
+      setLoading(false);
       if (success) {
         navigate("/login");
         toast.success(message);
@@ -29,6 +30,7 @@ const Register = ({ loading, setLoading }) => {
         toast.error(message);
       }
     } catch (error) {
+      setLoading(false);
       console.log(`error:register-client:${error.message}`);
     }
   };
@@ -43,9 +45,7 @@ const Register = ({ loading, setLoading }) => {
         p={password}
         su={setUsername}
         sp={setPassword}
-        loading={loading}
-        setLoading={setLoading}
-
+    
       />
     </>
   );

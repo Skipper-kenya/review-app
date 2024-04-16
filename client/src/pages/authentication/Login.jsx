@@ -22,12 +22,13 @@ const Login = ({ loading, setLoading }) => {
       return toast.info("Ensure all fields are filled");
     }
     try {
+      setLoading(true);
       const response = await axios.post(process.env.REACT_APP_SIGNIN, {
         username,
         password,
       });
       const { message, token, success, userId } = response.data;
-
+      setLoading(false);
       if (success) {
         setCookie("access_token", token, { maxAge: 10800 });
         localStorage.setItem("userId", userId);
@@ -37,6 +38,8 @@ const Login = ({ loading, setLoading }) => {
         toast.error(message);
       }
     } catch (error) {
+      setLoading(false);
+
       console.log(error.message);
     }
   };
@@ -51,8 +54,7 @@ const Login = ({ loading, setLoading }) => {
         p={password}
         su={setUsername}
         sp={setPassword}
-        loading={loading}
-        setLoading={setLoading}
+
       />
     </>
   );

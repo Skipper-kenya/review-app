@@ -7,17 +7,7 @@ import { globalContext } from "../../context/generalContext";
 
 import cancel from "../../assets/cancel.png";
 
-const Auth = ({
-  name,
-  btnName,
-  u,
-  p,
-  su,
-  sp,
-  handleSubmit,
-  loading,
-  setLoading,
-}) => {
+const Auth = ({ name, btnName, u, p, su, sp, handleSubmit }) => {
   const { cookie } = useContext(globalContext);
   const navigate = useNavigate();
 
