@@ -8,7 +8,7 @@ import FormContainer from "./FormContainer";
 import { globalContext } from "../../context/generalContext.js";
 import { useGetUserId } from "../../hooks/useGetUserId.js";
 
-const Dashboard = () => {
+const Dashboard = ({ loading, setLoading }) => {
   const { cookie, id } = useContext(globalContext);
 
   const token = cookie.access_token;
@@ -31,15 +31,16 @@ const Dashboard = () => {
 
   const getReviews = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(process.env.REACT_APP_GET_REVIEWS);
       const { allReviews, success } = response.data;
 
-      if (success) {
-        setReviews(allReviews);
-      } else {
-        toast.info("Retry amigo!");
-      }
+      success ? setReviews(allReviews) : toast.info("Retry amigo!");
+
+      setLoading(false);
     } catch (error) {
+      setLoading(false);
+
       console.log(error.message);
     }
   };
