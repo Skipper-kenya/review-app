@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Login from "./pages/authentication/Login";
 import Register from "./pages/authentication/Register";
+//
 
 function App() {
   const [loading, setLoading] = useState(false);
